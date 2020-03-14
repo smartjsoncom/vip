@@ -14,7 +14,7 @@ sign:调用签名，建议在异常捕获中记录该值，可以提高开放平
 
 #### 安装
 ```
-composer require opensdk/vip
+composer require smartjson/vip
 ```
 
 #### 使用示例
