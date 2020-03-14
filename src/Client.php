@@ -96,7 +96,7 @@ class Client
      *
      * @return mixed
      */
-    public function execute()
+    public function execute($debug = false)
     {
         $query = [
             'service' => $this->request->service,
@@ -119,6 +119,10 @@ class Client
         $options = [
             OpenSDKOptions::TIME_OUT => $this->timeout,
         ];
+
+        if ($debug) {
+            info('pre_log_info', $this->request->requestType, $this->gateway, $query, $params, $options);
+        }
 
         if (strtolower($this->request->requestType) == 'post') {
             $result = Http::post($this->gateway . '/?' . http_build_query($query), $params, $options);
